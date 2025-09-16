@@ -15,10 +15,12 @@
         public DateTime CreatedAt { get; set; }
         public decimal Salary { get; set; }
 
+
+
+
         // Method to update job details except Id and CreatedAt 
         // (which should remain unchanged)
-        // We will use this method in the JobsController's Update action
-        // to update the job details.
+        // We will use this method in the JobsController's Update action to update the job details.
         // This approach encapsulates the update logic within the Job model.
         // This is a common practice in domain-driven design.
 
