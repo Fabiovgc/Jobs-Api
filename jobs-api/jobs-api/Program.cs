@@ -1,3 +1,6 @@
+using jobs_api.Persistency;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,13 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddSwaggerGen();
+
+
+// Register the DbContext with an in-memory database for simplicity
+// In a real application, you would use a persistent database like SQL Server, PostgreSQL, etc
+builder.Services.AddDbContext<JobsDbContext>(
+    o => o.UseInMemoryDatabase("JobsDb")
+    );
 
 var app = builder.Build();
 
