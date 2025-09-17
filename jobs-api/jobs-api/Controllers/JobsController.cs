@@ -74,8 +74,14 @@
         [HttpPost]
         public IActionResult Post(Job job) 
         {
-            return Ok();
-            // vamos alterar para create action, seguido de 3 argumentos -> return CreatedAtAction(nameof(GetById), new { id = createdJob.Id }, obj);
+            _context.Jobs.Add(job);
+            _context.SaveChanges();
+
+
+            // Returns a 201 Created response with a Location header pointing to the newly created resource
+            // The nameof(GetById) is a way to get the name of the method as a string
+
+            return CreatedAtAction(nameof(GetById), new { id = job.Id }, job);
 
         }
 
@@ -86,9 +92,24 @@
         // UPDATE AN EXISTING JOB
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id) 
+        public IActionResult Put(int id, Job input) 
         {
+            var job = _context.Jobs.SingleOrDefault(j => j.Id == id);
+
+            if (job == null)
+            {
+                return NotFound();
+            }
+
+            // Use the Update method defined in the Job model to update the job details
+            job.Update(input.Title, input.Description, input.Company, input.Location, input.Salary);
+
+            // Mark the entity as modified
+            _context.Jobs.Update(job);
+            _context.SaveChanges();
+
             return NoContent();
+
         }
 
 
@@ -98,8 +119,17 @@
         // DELETE A JOB
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id, Job input) 
         {
+            var job = _context.Jobs.SingleOrDefault(j => j.Id == id);
+
+            if (job == null)
+            {
+                return NotFound();
+            }
+            _context.Jobs.Remove(job);
+            _context.SaveChanges();
+
             return NoContent();
         }
 
