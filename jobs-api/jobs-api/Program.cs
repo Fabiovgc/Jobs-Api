@@ -10,11 +10,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
 
 
-// Register the DbContext with an in-memory database for simplicity
-// In a real application, you would use a persistent database like SQL Server, PostgreSQL, etc
+// Get the connection string from configuration (appsettings.json)
+var connectionString = builder.Configuration.GetConnectionString("JobsApiCs");
 builder.Services.AddDbContext<JobsDbContext>(
-    o => o.UseInMemoryDatabase("JobsDb")
-    );
+    o => o.UseSqlServer(connectionString));
+
+
+// Configure Entity Framework to use an in-memory database
+//builder.Services.AddDbContext<JobsDbContext>(
+//    o => o.UseInMemoryDatabase("JobsDb")
+//    );
 
 var app = builder.Build();
 
