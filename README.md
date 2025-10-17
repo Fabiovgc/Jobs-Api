@@ -13,7 +13,7 @@ Allows you to **list**, **create**, **update** and **delete** vacancy records st
 - **Swagger / Swashbuckle**
 - **Visual Studio / VS Code**
 
-- ---
+---
 
 ## 📂 Project structure
 
@@ -76,7 +76,7 @@ public class JobsDbContext : DbContext
         }
 }
 ```
-
+---
 ## 📊 UML Diagram
 
 ```mermaid
@@ -106,7 +106,7 @@ classDiagram
     JobsDbContext --> Job : "contém"
     JobsController --> JobsDbContext : "usa"
 ```
-
+---
 ## ⚙️ How to run the project
 
 ### 1️⃣ Pré-requisitos
@@ -146,7 +146,7 @@ dotnet ef database update
 ```bash
 dotnet run
 ```
-
+---
 ## 🧪 JSON example for testing
 
 ### Example of body for creating a Job (POST)
