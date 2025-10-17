@@ -103,8 +103,8 @@ classDiagram
         + Delete(id : int, input : Job) : IActionResult
     }
 
-    JobsDbContext --> Job : "contém"
-    JobsController --> JobsDbContext : "usa"
+    JobsDbContext --> Job : "contains"
+    JobsController --> JobsDbContext : "uses"
 ```
 ---
 ## ⚙️ How to run the project
