@@ -38,7 +38,7 @@
             {
                 return NotFound();
             }
-            return Ok();
+            return Ok(job);
         }
 
 
