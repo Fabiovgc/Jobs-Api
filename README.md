@@ -109,7 +109,7 @@ classDiagram
 ---
 ## ⚙️ How to run the project
 
-### 1️⃣ Pré-requisitos
+### 1️⃣ Prerequisites
 - [.NET SDK 8.0+](https://dotnet.microsoft.com/en-us/download)
 - [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/) ou VS Code
